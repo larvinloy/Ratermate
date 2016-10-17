@@ -63,25 +63,6 @@
         android:id="@+id/textCategoryCount"
         android:textSize="12sp" />
 
-    <Button
-        android:text="Start Survey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/buttonCategory"
-        android:layout_toLeftOf="@+id/buttonCategory"
-        android:layout_toStartOf="@+id/buttonCategory"
-        android:layout_marginTop="15dp"
-        android:id="@+id/buttonStart" />
-
-    <Button
-        android:text="Get Results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/buttonStart"
-        android:layout_toRightOf="@+id/buttonCategory"
-        android:layout_toEndOf="@+id/buttonCategory"
-        android:id="@+id/buttonResults" />
-
     <TextView
         android:text="Category"
         android:layout_width="wrap_content"
@@ -193,5 +174,38 @@
         android:layout_below="@+id/textView15"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        android:text="Start Survey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonStart"
+        android:layout_below="@+id/categoryText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
+        android:layout_toLeftOf="@+id/buttonClientSubmit"
+        android:layout_toStartOf="@+id/buttonClientSubmit" />
+
+    <Button
+        android:text="Get Results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonResults"
+        android:layout_alignBaseline="@+id/buttonStart"
+        android:layout_alignBottom="@+id/buttonStart"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Session ID"
+        android:ems="10"
+        android:layout_below="@+id/buttonStart"
+        android:layout_alignLeft="@+id/categoryText"
+        android:layout_alignStart="@+id/categoryText"
+        android:id="@+id/idText" />
 
 </RelativeLayout>
