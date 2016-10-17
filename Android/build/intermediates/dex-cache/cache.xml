@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_1485531e6fbd1f6d9a9c08a928aefc8ec2f79e39/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_09c1100fdf34ec849f2880432bd494f378e2c519/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_8ba47800469ea83aaacb6a1b080d9287bd59e642/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="6a0ed19c6c63105114e4badda69466ee0315ea69">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_35da8a89f972ac1248ca1c214eda7f91daa11411/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_5284cc1c3adea5261b8d8e35b610a3435d5ffba7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_4304105b0461d4a0938c734432c703443c1b8ead/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_4805d12ebfd6ba88ab146a1596238919054a742f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_3df6fbc619fc28218e5651f36e4da8846e54623e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.0-alpha9/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f2b64f6a762f61a2379d6a79af03e2ee56eefe0b">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support.constraint-constraint-layout-1.0.0-alpha9_515133efdb79a0bcb3533da9bf0a1f5b75c36aa1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_fcf22dc891984f5c48154ca31936242203cce7c2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_189a5af0a298ddb3ead5bead53331680bb7086b0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_72a0cdacd2ddcb7c758a8fd9d29ed4aa373149c1/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_25a82370c28a4787677a20c12c0129c3a94cbc51/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="1819b2a67662e86058d4b7063ace7830cfb25a24">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61803cacb9734d6432b88086378283a3c12753bd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_caf88d680285cdbb3860e45c187d8021e89c8a3b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_3f5d3bd35c02d407eb3e5ddb6642dbe3907344e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_7fbc4ec3b0e1eb3eeffc812b0157ba92f7d910fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_71081a23b38ab2dec35e0d40ff9308ff36caa2db/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andrewfinlayson/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-alpha9/constraint-layout-solver-1.0.0-alpha9.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.3"
+        sha1="6a908fd0803cc5f65b007101002aec06dc7544da">
+        <dex dex="/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.0-alpha9_008b60d9c3cf4de13b7fac76033f6e71ab99a577/classes.dex" />
+    </item>
+
+</items>

@@ -1,2 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_b4d5ae0d049f277eb90a28dfc6871496a0e29b17.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_5ca48c5f0c840157612814feff8a3da547a4aa2e.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client-android/1.20.0/5673179575c32b69a474334255c3044adf18d40/google-api-client-android-1.20.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="05673179575c32b69a474334255c3044adf18d40">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/google-api-client-android-1.20.0_0278eb7fbabda151ad471db9b5b9130b9bed6ffb.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_22890dfb9d34abd2f2b6d7d3f13932000b002d03.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_25a82370c28a4787677a20c12c0129c3a94cbc51.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_9add52a7caff070b0f2652c49c3cb81c288804b7.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_acc8a2d28b4fd4979915c32d8b387dfdcb496690.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8a351a607071b702e3d19f62fa90ef4f8b1433f5.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/api/build/libs/api-android-endpoints.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="88c21f33036a83ce1ab563e04b6bae7b94c60548">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/api-android-endpoints_c8da7ec34d8a54d84bd7c06fddf5e8c26245c2ef.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_8c619f4ce89f6f3fbcf479e994aac83f72edba8f.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_103ebb1f8938632724ce3790917a322ad9b18fcf.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.api-client/google-api-client/1.20.0/d3e66209ae9e749b2d6833761e7885f60f285564/google-api-client-1.20.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="d3e66209ae9e749b2d6833761e7885f60f285564">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/google-api-client-1.20.0_5124a6f1eb9c4a0401560f1a61ffd6701ca19842.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client/1.20.0/93d82db2bca534960253f43424b2ba9d7638b4d2/google-http-client-1.20.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="93d82db2bca534960253f43424b2ba9d7638b4d2">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/google-http-client-1.20.0_4e9b194dc455ea4ef1e9f9940b1c4078c41950fe.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-jackson2/1.20.0/2408070b2abec043624d35b35e30450f1b663858/google-http-client-jackson2-1.20.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="2408070b2abec043624d35b35e30450f1b663858">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/google-http-client-jackson2-1.20.0_bdf6662c45f61a09d6c11bcca5131f6422bcd0d9.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_a3fc94332a3750c93df2f183fcfc8bf00c2078e2.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.1.3/f6c3aed1cdfa21b5c1737c915186ea93a95a58bd/jackson-core-2.1.3.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="f6c3aed1cdfa21b5c1737c915186ea93a95a58bd">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/jackson-core-2.1.3_3b8a08e4f6c5b2638e3be6847e1407da1db46a0d.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_3d19bb519ef35a450b8da1bc4c7a67754ee269c2.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_74d49a69c76d1d1709ce0521c420a59a920a093f.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_bf281fdf71a8d7d30e6d16981008547e93a6f0af.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/jsr305-1.3.9_5eeb955caf14f62df2bdc8c9d087da2af1705bd0.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.oauth-client/google-oauth-client/1.20.0/1d086ac5756475ddf451af2e2df6e288d18608ca/google-oauth-client-1.20.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="1d086ac5756475ddf451af2e2df6e288d18608ca">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/google-oauth-client-1.20.0_bf0797e354a19c09b69ac163130ff9a30d842b9e.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_b9e8febbc029b83bcbce7406e3611afd84465df2.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ff78b62c84117c6a841667f77ad97a310d3e9531.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.http-client/google-http-client-android/1.20.0/313dc99a7963523871495897ca11aa8472b3c6fd/google-http-client-android-1.20.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="313dc99a7963523871495897ca11aa8472b3c6fd">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/google-http-client-android-1.20.0_e9a4da60f1891a28891ba515f4256f15ef6b31f6.jar" />
+    </item>
+    <item
+        jar="/Users/andrewfinlayson/.gradle/caches/modules-2/files-2.1/com.google.guava/guava-jdk5/13.0/381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7/guava-jdk5-13.0.jar"
+        jumboMode="false"
+        revision="24.0.3"
+        sha1="381ae6c8add7c98e9bcddb1e0b898400cd6fc3f7">
+        <dex dex="/Users/andrewfinlayson/Documents/Andrew Uni/Semester 3/Cloud/Ratermate/app/build/intermediates/pre-dexed/debug/guava-jdk5-13.0_de39f4d58d45058f5ff71d2f595f1a2b462ee150.jar" />
+    </item>
+
+</items>

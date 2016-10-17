@@ -1,0 +1,7 @@
+#Wed Oct 05 16:25:21 AEDT 2016
+base.0=/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_35da8a89f972ac1248ca1c214eda7f91daa11411
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61803cacb9734d6432b88086378283a3c12753bd/classes.dex
+base.1=/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_61803cacb9734d6432b88086378283a3c12753bd
+file.0=/Users/andrewfinlayson/AndroidStudioProjects/ratermate/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_35da8a89f972ac1248ca1c214eda7f91daa11411/classes.dex

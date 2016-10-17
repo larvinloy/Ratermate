@@ -10,16 +10,188 @@
     tools:context="com.larvinloy.ratermate2.MainActivity">
 
     <TextView
+        android:text="'Displays Test Results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quote!"
-        android:id="@+id/textView" />
-    <Button
+        android:id="@+id/textDisplayResults"
+        android:layout_alignBottom="@+id/textDisplayCategory"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_alignStart="@+id/textView4"
+        android:layout_alignTop="@+id/textDisplayCategory"
+        android:layout_toLeftOf="@+id/buttonResults"
+        android:layout_toStartOf="@+id/buttonResults" />
+
+    <EditText
         android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Get Quotes"
-    android:id="@+id/btnGetQuotes"
-    android:layout_below="@+id/textView"
-    android:onClick="getQuotes"
-    />
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Enter Category"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:id="@+id/categoryText" />
+
+    <Button
+        android:text="ADD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryText"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/buttonCategory" />
+
+    <TextView
+        android:text="Categories Added: "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:text="'Have this change to amount'"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:id="@+id/textCategoryCount"
+        android:textSize="12sp" />
+
+    <Button
+        android:text="Start Survey"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonCategory"
+        android:layout_toLeftOf="@+id/buttonCategory"
+        android:layout_toStartOf="@+id/buttonCategory"
+        android:layout_marginTop="15dp"
+        android:id="@+id/buttonStart" />
+
+    <Button
+        android:text="Get Results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/buttonStart"
+        android:layout_toRightOf="@+id/buttonCategory"
+        android:layout_toEndOf="@+id/buttonCategory"
+        android:id="@+id/buttonResults" />
+
+    <TextView
+        android:text="Category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView4"
+        android:text="Results" />
+
+    <TextView
+        android:text="'Displays Test Category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="23dp"
+        android:id="@+id/textDisplayCategory"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3" />
+
+    <TextView
+        android:text="'Displays Test Votes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textDisplayVotes"
+        android:layout_alignBaseline="@+id/textDisplayResults"
+        android:layout_alignBottom="@+id/textDisplayResults"
+        android:layout_toRightOf="@+id/textDisplayResults"
+        android:layout_toEndOf="@+id/textDisplayResults"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
+
+    <TextView
+        android:text="Votes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignRight="@+id/categoryText"
+        android:layout_alignEnd="@+id/categoryText" />
+
+    <TextView
+        android:text="Category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textDisplayCategory"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="18dp"
+        android:id="@+id/textView12" />
+
+    <TextView
+        android:text="Display Test Client Category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textDisplayClientCategory"
+        android:layout_below="@+id/textView12"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp"
+        android:layout_alignRight="@+id/buttonStart"
+        android:layout_alignEnd="@+id/buttonStart" />
+
+    <Button
+        android:text="Client Submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonClientSubmit"
+        android:layout_below="@+id/textDisplayClientCategory"
+        android:layout_toLeftOf="@+id/textView5"
+        android:layout_toStartOf="@+id/textView5" />
+
+    <TextView
+        android:text="Ratings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView12"
+        android:layout_alignRight="@+id/textView5"
+        android:layout_alignEnd="@+id/textView5"
+        android:id="@+id/textView15" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textDisplayClientCategory"
+        android:layout_alignLeft="@+id/textDisplayVotes"
+        android:layout_alignStart="@+id/textDisplayVotes"
+        android:id="@+id/textView16" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName|number"
+        android:text="Enter Rating"
+        android:ems="10"
+        android:id="@+id/editText2"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_above="@+id/buttonClientSubmit"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>
