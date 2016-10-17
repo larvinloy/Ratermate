@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/categoryText"
         android:layout_centerHorizontal="true"
-        android:id="@+id/buttonCategory" />
+        android:id="@+id/buttonCategory"
+        android:onClick="buttonCategory" />
 
     <TextView
         android:text="Categories Added: "
