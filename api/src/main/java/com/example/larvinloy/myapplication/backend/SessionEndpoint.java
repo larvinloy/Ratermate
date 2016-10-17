@@ -10,6 +10,7 @@ import com.google.appengine.api.datastore.QueryResultIterator;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.cmd.Query;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -97,14 +98,49 @@ public class SessionEndpoint {
             name = "getAverages",
             path = "session/getAverages/{sessionId}",
             httpMethod = ApiMethod.HttpMethod.GET)
-    public List<Vote> getAverages(@Named("sessionId") Long sessionId) throws NotFoundException {
+    public Session getAverages(@Named("sessionId") Long sessionId) throws NotFoundException {
         logger.info("Getting Session with ID: " + sessionId);
-//        Session session = ofy().load().type(Session.class).id(sessionId).now();
+        Session session = ofy().load().type(Session.class).id(sessionId).now();
         List<Vote> data = ofy().load().type(Vote.class).filter("sessionId ==", sessionId).list();
-//        if (session == null) {
-//            throw new NotFoundException("Could not find Session with ID: " + sessionId);
-//        }
-        return data;
+
+        int catCount = session.getCategories().size();
+        ArrayList<BigInteger> sum = new ArrayList<BigInteger>();
+        ArrayList<String> sumString = new ArrayList<String>();
+
+        String info;
+        info = catCount + " vote list size:" + data.size() + " every vote array size: ";
+        for (Vote vote :data)
+        {
+            ArrayList<String> ratings = vote.getVotes();
+
+            info += ratings.size() + " ";
+
+            for(int i = 0 ;i < 2 ;i++)
+            {
+                if(sum.size() < 2)
+                {
+                    sum.add(i,new BigInteger(ratings.get(i)));
+                }
+                else
+                {
+                    sum.set(i,sum.get(i).add(new BigInteger(ratings.get(i))));
+                }
+            }
+        }
+
+
+        for (BigInteger rating:sum)
+        {
+           sumString.add(rating.toString());
+        }
+        session.setAverages(sumString);
+
+
+        if (session == null) {
+            throw new NotFoundException("Could not find Session with ID: " + sessionId);
+        }
+        session.setG(info);
+        return session;
     }
 
     /**
