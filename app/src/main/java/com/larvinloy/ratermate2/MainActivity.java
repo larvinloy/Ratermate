@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void getQuotes(View v) {
+    public void buttonStart(View v) {
         new EndpointsAsyncTask(this).execute();
     }
 

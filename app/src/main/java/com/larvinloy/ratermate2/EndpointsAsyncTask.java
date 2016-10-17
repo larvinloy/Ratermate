@@ -37,20 +37,6 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
     @Override
     protected Session doInBackground(Void... params) {
         if(myApiService == null) { // Only do this once
-//            SessionApi.Builder builder = new
-//                    SessionApi.Builder(AndroidHttp.newCompatibleTransport(),
-//                    new AndroidJsonFactory(), null)
-//// options for running against local devappserver
-//// — 10.0.2.2 is localhost’s IP address in Android emulator
-//// — turn off compression when running against local devappserver
-//                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-//            .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-//                @Override
-//                public void initialize(AbstractGoogleClientRequest<?>    abstractGoogleClientRequest) throws IOException {
-//                    abstractGoogleClientRequest.setDisableGZipContent(true);
-//                }
-//            });
-// end options for devappserver
 
             SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
                     .setRootUrl("https://ratermate.appspot.com/_ah/api/");
@@ -60,16 +46,13 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
         Session test = new Session();
         Session resp;
         try {
-//            test.
-//            test.setWho("TWO ");
-//            test.setWhat("ONE");
             test.setModLength(1024);
             test.setG("1111111111111");
             test.setN("3333333333333");
             test.setModLength(1024);
 
             test.setCategories(new ArrayList<String>(){{
-                add("Apples");
+                add("AndrewTest");
                 add("Oranges");
 
             }});
@@ -89,3 +72,20 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
 
     }
 }
+
+
+
+//            SessionApi.Builder builder = new
+//                    SessionApi.Builder(AndroidHttp.newCompatibleTransport(),
+//                    new AndroidJsonFactory(), null)
+//// options for running against local devappserver
+//// — 10.0.2.2 is localhost’s IP address in Android emulator
+//// — turn off compression when running against local devappserver
+//                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
+//            .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+//                @Override
+//                public void initialize(AbstractGoogleClientRequest<?>    abstractGoogleClientRequest) throws IOException {
+//                    abstractGoogleClientRequest.setDisableGZipContent(true);
+//                }
+//            });
+// end options for devappserver
