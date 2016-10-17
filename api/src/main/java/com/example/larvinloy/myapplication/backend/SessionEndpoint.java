@@ -23,7 +23,7 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
  * WARNING: This generated code is intended as a sample or starting point for using a
  * Google Cloud Endpoints RESTful API with an Objectify entity. It provides no data access
  * restrictions and no data validation.
- * <p/>
+ * <p>
  * DO NOT deploy this code unchanged as part of a real application to real users.
  */
 @Api(
@@ -84,6 +84,27 @@ public class SessionEndpoint {
         logger.info("Created Session with ID: " + session.getSessionId());
 
         return ofy().load().entity(session).now();
+    }
+
+    /**
+     * Returns the {@link Session} with the corresponding ID.
+     *
+     * @param sessionId the ID of the entity to be retrieved
+     * @return the entity with the corresponding ID
+     * @throws NotFoundException if there is no {@code Session} with the provided ID.
+     */
+    @ApiMethod(
+            name = "getAverages",
+            path = "session/getAverages/{sessionId}",
+            httpMethod = ApiMethod.HttpMethod.GET)
+    public List<Vote> getAverages(@Named("sessionId") Long sessionId) throws NotFoundException {
+        logger.info("Getting Session with ID: " + sessionId);
+//        Session session = ofy().load().type(Session.class).id(sessionId).now();
+        List<Vote> data = ofy().load().type(Vote.class).filter("sessionId ==", sessionId).list();
+//        if (session == null) {
+//            throw new NotFoundException("Could not find Session with ID: " + sessionId);
+//        }
+        return data;
     }
 
     /**
