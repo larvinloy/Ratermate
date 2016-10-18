@@ -47,25 +47,6 @@ public class VoteEndpoint {
         ObjectifyService.register(Vote.class);
     }
 
-    /**
-     * Returns the {@link Vote} with the corresponding ID.
-     *
-     * @param voteId the ID of the entity to be retrieved
-     * @return the entity with the corresponding ID
-     * @throws NotFoundException if there is no {@code Vote} with the provided ID.
-     */
-    @ApiMethod(
-            name = "get",
-            path = "vote/{voteId}",
-            httpMethod = ApiMethod.HttpMethod.GET)
-    public Vote get(@Named("voteId") Long voteId) throws NotFoundException {
-        logger.info("Getting Vote with ID: " + voteId);
-        Vote vote = ofy().load().type(Vote.class).id(voteId).now();
-        if (vote == null) {
-            throw new NotFoundException("Could not find Vote with ID: " + voteId);
-        }
-        return vote;
-    }
 
     /**
      * Inserts a new {@code Vote}.
@@ -84,44 +65,6 @@ public class VoteEndpoint {
         logger.info("Created Vote with ID: " + vote.getVoteId());
 
         return ofy().load().entity(vote).now();
-    }
-
-    /**
-     * Updates an existing {@code Vote}.
-     *
-     * @param voteId the ID of the entity to be updated
-     * @param vote   the desired state of the entity
-     * @return the updated version of the entity
-     * @throws NotFoundException if the {@code voteId} does not correspond to an existing
-     *                           {@code Vote}
-     */
-    @ApiMethod(
-            name = "update",
-            path = "vote/{voteId}",
-            httpMethod = ApiMethod.HttpMethod.PUT)
-    public Vote update(@Named("voteId") Long voteId, Vote vote) throws NotFoundException {
-        // TODO: You should validate your ID parameter against your resource's ID here.
-        checkExists(voteId);
-        ofy().save().entity(vote).now();
-        logger.info("Updated Vote: " + vote);
-        return ofy().load().entity(vote).now();
-    }
-
-    /**
-     * Deletes the specified {@code Vote}.
-     *
-     * @param voteId the ID of the entity to delete
-     * @throws NotFoundException if the {@code voteId} does not correspond to an existing
-     *                           {@code Vote}
-     */
-    @ApiMethod(
-            name = "remove",
-            path = "vote/{voteId}",
-            httpMethod = ApiMethod.HttpMethod.DELETE)
-    public void remove(@Named("voteId") Long voteId) throws NotFoundException {
-        checkExists(voteId);
-        ofy().delete().type(Vote.class).id(voteId).now();
-        logger.info("Deleted Vote with ID: " + voteId);
     }
 
     /**
