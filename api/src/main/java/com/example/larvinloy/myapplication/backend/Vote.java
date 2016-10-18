@@ -2,13 +2,16 @@ package com.example.larvinloy.myapplication.backend;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 
 @Entity
+@Index
 public class Vote 
 {
 	@Id

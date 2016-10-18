@@ -10,6 +10,7 @@ import com.google.appengine.api.datastore.QueryResultIterator;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.cmd.Query;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -23,7 +24,7 @@ import static com.googlecode.objectify.ObjectifyService.ofy;
  * WARNING: This generated code is intended as a sample or starting point for using a
  * Google Cloud Endpoints RESTful API with an Objectify entity. It provides no data access
  * restrictions and no data validation.
- * <p/>
+ * <p>
  * DO NOT deploy this code unchanged as part of a real application to real users.
  */
 @Api(
@@ -84,6 +85,62 @@ public class SessionEndpoint {
         logger.info("Created Session with ID: " + session.getSessionId());
 
         return ofy().load().entity(session).now();
+    }
+
+    /**
+     * Returns the {@link Session} with the corresponding ID.
+     *
+     * @param sessionId the ID of the entity to be retrieved
+     * @return the entity with the corresponding ID
+     * @throws NotFoundException if there is no {@code Session} with the provided ID.
+     */
+    @ApiMethod(
+            name = "getAverages",
+            path = "session/getAverages/{sessionId}",
+            httpMethod = ApiMethod.HttpMethod.GET)
+    public Session getAverages(@Named("sessionId") Long sessionId) throws NotFoundException {
+        logger.info("Getting Session with ID: " + sessionId);
+        Session session = ofy().load().type(Session.class).id(sessionId).now();
+        List<Vote> data = ofy().load().type(Vote.class).filter("sessionId ==", sessionId).list();
+
+        int catCount = session.getCategories().size();
+        ArrayList<BigInteger> sum = new ArrayList<BigInteger>();
+        ArrayList<String> sumString = new ArrayList<String>();
+
+        String info;
+        info = catCount + " vote list size:" + data.size() + " every vote array size: ";
+        for (Vote vote :data)
+        {
+            ArrayList<String> ratings = vote.getVotes();
+
+            info += ratings.size() + " ";
+
+            for(int i = 0 ;i < 2 ;i++)
+            {
+                if(sum.size() < 2)
+                {
+                    sum.add(i,new BigInteger(ratings.get(i)));
+                }
+                else
+                {
+                    sum.set(i,sum.get(i).add(new BigInteger(ratings.get(i))));
+                }
+            }
+        }
+
+
+        for (BigInteger rating:sum)
+        {
+           sumString.add(rating.toString());
+        }
+        session.setAverages(sumString);
+
+
+        if (session == null) {
+            throw new NotFoundException("Could not find Session with ID: " + sessionId);
+        }
+        session.setG(info);
+        return session;
     }
 
     /**

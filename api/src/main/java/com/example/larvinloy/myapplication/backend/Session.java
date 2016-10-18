@@ -2,6 +2,7 @@ package com.example.larvinloy.myapplication.backend;
 
 import com.googlecode.objectify.annotation.Entity;
 import com.googlecode.objectify.annotation.Id;
+import com.googlecode.objectify.annotation.Index;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,8 +10,10 @@ import java.util.List;
 
 
 @Entity
+@Index
 public class Session 
 {
+
 	@Id
 	Long sessionId;
 
