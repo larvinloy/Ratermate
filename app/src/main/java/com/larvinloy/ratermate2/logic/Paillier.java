@@ -4,8 +4,13 @@ package com.larvinloy.ratermate2.logic;
  * Created by andrewfinlayson on 18/10/2016.
  */
 
+<<<<<<< HEAD
 import java.math.*;
 import java.util.*;
+=======
+import java.math.BigInteger;
+import java.util.Random;
+>>>>>>> d23c43e626ae68d0d0c5cde904af99cf5820a690
 
 /**
  * Paillier class to generate private and public keys of variable bit length

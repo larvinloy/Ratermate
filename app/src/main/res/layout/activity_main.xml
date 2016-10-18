@@ -9,26 +9,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.larvinloy.ratermate2.MainActivity">
 
-    <TextView
-        android:text="'Displays Test Results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textDisplayResults"
-        android:layout_alignBottom="@+id/textDisplayCategory"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_alignTop="@+id/textDisplayCategory"
-        android:layout_toLeftOf="@+id/buttonResults"
-        android:layout_toStartOf="@+id/buttonResults" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Enter Category"
+        android:inputType="text"
+        android:text="Enter Category 1"
         android:ems="10"
+        android:id="@+id/categoryText1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+<<<<<<< HEAD
         android:layout_marginTop="29dp"
         android:id="@+id/categoryText" />
 
@@ -162,42 +152,44 @@
         android:layout_alignLeft="@+id/textDisplayVotes"
         android:layout_alignStart="@+id/textDisplayVotes"
         android:id="@+id/textView16" />
+=======
+        />
+>>>>>>> d23c43e626ae68d0d0c5cde904af99cf5820a690
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName|number"
-        android:text="Enter Rating"
+        android:inputType="text"
+        android:text="Enter Category 2"
         android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_toRightOf="@+id/textView4"
-        android:layout_above="@+id/buttonClientSubmit"
-        android:layout_below="@+id/textView15"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@id/categoryText1"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/categoryText2" />
+
 
     <Button
         android:text="Start Survey"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonStart"
+<<<<<<< HEAD
         android:onClick="buttonStart"
         android:layout_below="@+id/categoryText"
+=======
+        android:layout_below="@+id/categoryText2"
+>>>>>>> d23c43e626ae68d0d0c5cde904af99cf5820a690
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="32dp"
-        android:layout_toLeftOf="@+id/buttonClientSubmit"
-        android:layout_toStartOf="@+id/buttonClientSubmit" />
+        />
 
     <Button
         android:text="Get Results"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonResults"
-        android:layout_alignBaseline="@+id/buttonStart"
-        android:layout_alignBottom="@+id/buttonStart"
-        android:layout_alignLeft="@+id/textView15"
-        android:layout_alignStart="@+id/textView15" />
+        android:layout_below="@+id/categoryText2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -205,9 +197,131 @@
         android:inputType="textPersonName"
         android:text="Enter Session ID"
         android:ems="10"
+        android:id="@+id/idText"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/tableLayoutOrganiser"
+        android:layout_alignLeft="@+id/categoryText2"
+        android:layout_alignStart="@+id/categoryText2" />
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/buttonStart"
-        android:layout_alignLeft="@+id/categoryText"
-        android:layout_alignStart="@+id/categoryText"
-        android:id="@+id/idText" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:id="@+id/tableLayoutOrganiser">
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/buttonStart"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Category 1"
+                android:id="@+id/categoryLabel1"
+                android:paddingRight="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Rating 1"
+                android:id="@+id/ratingLabel1" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/buttonStart"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Category 2"
+                android:id="@+id/categoryLabel2"
+                android:paddingRight="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Rating 2"
+                android:id="@+id/ratingLabel2" />
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tableLayoutVoter"
+        android:layout_below="@+id/idText"
+        android:layout_alignLeft="@+id/tableLayoutOrganiser"
+        android:layout_alignStart="@+id/tableLayoutOrganiser"
+        android:layout_alignRight="@+id/tableLayoutOrganiser"
+        android:layout_alignEnd="@+id/tableLayoutOrganiser">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/buttonStart"
+            android:layout_centerHorizontal="true" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Category 1"
+                android:id="@+id/categoryVoteLabel1"
+                android:paddingRight="30dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/ratingVoteLabel1"
+                android:layout_column="1" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/buttonStart"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Category 2"
+                android:id="@+id/categoryVoteLabel2"
+                android:paddingRight="30dp" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:ems="10"
+                android:id="@+id/ratingVoteLabel2"
+                android:layout_column="1" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:text="Vote"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonVote"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>

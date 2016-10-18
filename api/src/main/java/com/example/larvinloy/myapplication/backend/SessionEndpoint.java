@@ -104,8 +104,12 @@ public class SessionEndpoint {
         List<Vote> data = ofy().load().type(Vote.class).filter("sessionId ==", sessionId).list();
 
         int catCount = session.getCategories().size();
+        BigInteger n = new BigInteger(session.getN());
+        BigInteger nsquare = n.multiply(n);
+
         ArrayList<BigInteger> sum = new ArrayList<BigInteger>();
         ArrayList<String> sumString = new ArrayList<String>();
+        ArrayList<String> averageString = new ArrayList<String>();
 
         String info;
         info = catCount + " vote list size:" + data.size() + " every vote array size: ";
@@ -123,62 +127,32 @@ public class SessionEndpoint {
                 }
                 else
                 {
-                    sum.set(i,sum.get(i).add(new BigInteger(ratings.get(i))));
+                    sum.set(i,sum.get(i).multiply(new BigInteger(ratings.get(i))).mod(nsquare));
                 }
             }
         }
 
+        //average done here
+        double fdivisor = (double) (1.0/(double)data.size());
 
-        for (BigInteger rating:sum)
+        while(fdivisor < 1000000)
+            fdivisor*=10;
+        BigInteger divisor = new BigInteger(String.valueOf((int)fdivisor));
+
+        for(int i = 0 ;i < 2 ;i++)
         {
-           sumString.add(rating.toString());
+            BigInteger average = sum.get(i).modPow(divisor,nsquare);
+            averageString.add(average.toString());
         }
-        session.setAverages(sumString);
+
+        session.setAverages(averageString);
 
 
         if (session == null) {
             throw new NotFoundException("Could not find Session with ID: " + sessionId);
         }
-        session.setG(info);
+//        session.setG(info);
         return session;
-    }
-
-    /**
-     * Updates an existing {@code Session}.
-     *
-     * @param sessionId the ID of the entity to be updated
-     * @param session   the desired state of the entity
-     * @return the updated version of the entity
-     * @throws NotFoundException if the {@code sessionId} does not correspond to an existing
-     *                           {@code Session}
-     */
-    @ApiMethod(
-            name = "update",
-            path = "session/{sessionId}",
-            httpMethod = ApiMethod.HttpMethod.PUT)
-    public Session update(@Named("sessionId") Long sessionId, Session session) throws NotFoundException {
-        // TODO: You should validate your ID parameter against your resource's ID here.
-        checkExists(sessionId);
-        ofy().save().entity(session).now();
-        logger.info("Updated Session: " + session);
-        return ofy().load().entity(session).now();
-    }
-
-    /**
-     * Deletes the specified {@code Session}.
-     *
-     * @param sessionId the ID of the entity to delete
-     * @throws NotFoundException if the {@code sessionId} does not correspond to an existing
-     *                           {@code Session}
-     */
-    @ApiMethod(
-            name = "remove",
-            path = "session/{sessionId}",
-            httpMethod = ApiMethod.HttpMethod.DELETE)
-    public void remove(@Named("sessionId") Long sessionId) throws NotFoundException {
-        checkExists(sessionId);
-        ofy().delete().type(Session.class).id(sessionId).now();
-        logger.info("Deleted Session with ID: " + sessionId);
     }
 
     /**
