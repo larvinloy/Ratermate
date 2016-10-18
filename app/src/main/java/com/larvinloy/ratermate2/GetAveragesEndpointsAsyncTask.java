@@ -98,6 +98,7 @@ class GetAveragesEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
                 decryptedValueWithDot += ".";
                 decryptedValueWithDot += decryptedValueInString.substring(1,decryptedValueInString
                         .length());
+
                 double decryptedValueInDouble = Double.valueOf(decryptedValueWithDot);
                 int integerPart = (int)decryptedValueInDouble;
                 double decimalPart = decryptedValueInDouble-integerPart;

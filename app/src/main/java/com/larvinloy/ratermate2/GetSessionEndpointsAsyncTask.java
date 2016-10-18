@@ -27,6 +27,7 @@ import static com.larvinloy.ratermate2.PassValues.sessionID;
 class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 {
     private static SessionApi myApiService = null;
+
     private Context context;
 
     MainActivity mActivity;
