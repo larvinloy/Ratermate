@@ -3,6 +3,7 @@ package com.larvinloy.ratermate2;
 /**
  * Created by larvinloy on 15/10/16.
  */
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Pair;
@@ -31,19 +32,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static android.R.id.text1;
 import static com.larvinloy.ratermate2.PassValues.sessionID;
 
 class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 {
     private static SessionApi myApiService = null;
     private Context context;
-    public ArrayList<String> categories = new ArrayList<String>();
-    int modLength = 1024;
-    Paillier paillier = Paillier.getInstance();
-    PublicEncryption publicEncryption = new PublicEncryption(modLength,paillier.getN(),paillier.getG());
-    private BigInteger n = publicEncryption.getN();
-    private BigInteger g = publicEncryption.getG();
 
+    MainActivity mActivity;
+
+    GetSessionEndpointsAsyncTask(MainActivity activity) {
+        mActivity = activity;
+    }
 
     GetSessionEndpointsAsyncTask(Context context) {
         this.context = context;
@@ -56,21 +57,9 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
         sessionID = MainActivity.getSessionID();
 
         if(myApiService == null) { // Only do this once
-            SessionApi.Builder builder = new
-                    SessionApi.Builder(AndroidHttp.newCompatibleTransport(),
-                    new AndroidJsonFactory(), null)
-// options for running against local devappserver
-// — 10.0.2.2 is localhost’s IP address in Android emulator
-// — turn off compression when running against local devappserver
-                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-                    .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-                        @Override
-                        public void initialize(AbstractGoogleClientRequest<?>    abstractGoogleClientRequest) throws IOException {
-                            abstractGoogleClientRequest.setDisableGZipContent(true);
-                        }
-                    });
-//            SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
-//                    .setRootUrl("https://ratermate.appspot.com/_ah/api/");
+
+            SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
+                    .setRootUrl("https://ratermate.appspot.com/_ah/api/");
 
             myApiService = builder.build();
         }
@@ -87,12 +76,22 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 
     @Override
     protected void onPostExecute(Session result) {
-//
-        Toast.makeText(context, String.valueOf(result.getCategories()),
-                Toast.LENGTH_LONG).show();
+
+        List<String> categories = new ArrayList<String>();
+
+        categories = result.getCategories();
 
         //Changes TextView to display Value
-//        TextView myAwesomeTextView = (TextView)findViewById(R.id.textDisplayCategory);
+        TextView text1 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel1);
+        TextView text2 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel2);
+
+        for(int i = 0; i < categories.size(); i++){
+            if(i == 0){
+                text1.setText(categories.get(i));
+            } else {
+                text2.setText(categories.get(i));
+            }
+        }
 //
 //        myAwesomeTextView.setText(text);
 

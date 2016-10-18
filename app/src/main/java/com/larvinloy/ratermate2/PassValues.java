@@ -7,7 +7,6 @@ package com.larvinloy.ratermate2;
 import java.util.*;
 
 public class PassValues {
-
     static ArrayList<String> categories = new ArrayList<String>();
 
     static long sessionID;
