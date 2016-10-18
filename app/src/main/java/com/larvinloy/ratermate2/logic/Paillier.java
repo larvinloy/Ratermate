@@ -24,13 +24,21 @@ public class Paillier
     private BigInteger g;                   // a random integer in Z*_{n^2}
     private BigInteger mu;                  // mu = (L(g^lambda mod n^2))^{-1} mod n, where L(u) = (u-1)/n
 
-    public Paillier(int modLengthIn)
+    private static Paillier paillier;
+    private Paillier(int modLengthIn)
     {
 
 
         modLength = modLengthIn;
 
         generateKeys();
+    }
+
+    public static Paillier getInstance()
+    {
+        if(paillier == null)
+            paillier = new Paillier(1024);
+        return paillier;
     }
 
     public BigInteger getP()

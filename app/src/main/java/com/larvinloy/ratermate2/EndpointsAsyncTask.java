@@ -34,7 +34,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
     private Context context;
     public ArrayList<String> categories = new ArrayList<String>();
     int modLength = 1024;
-    Paillier paillier = new Paillier(modLength);
+    Paillier paillier = Paillier.getInstance();
     PublicEncryption publicEncryption = new PublicEncryption(modLength,paillier.getN(),paillier.getG());
     private BigInteger n = publicEncryption.getN();
     private BigInteger g = publicEncryption.getG();
@@ -49,9 +49,21 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
         categories = MainActivity.getCategories();
 
         if(myApiService == null) { // Only do this once
-
-            SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
-                    .setRootUrl("https://ratermate.appspot.com/_ah/api/");
+            SessionApi.Builder builder = new
+                    SessionApi.Builder(AndroidHttp.newCompatibleTransport(),
+                    new AndroidJsonFactory(), null)
+// options for running against local devappserver
+// — 10.0.2.2 is localhost’s IP address in Android emulator
+// — turn off compression when running against local devappserver
+                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
+            .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
+                @Override
+                public void initialize(AbstractGoogleClientRequest<?>    abstractGoogleClientRequest) throws IOException {
+                    abstractGoogleClientRequest.setDisableGZipContent(true);
+                }
+            });
+//            SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
+//                    .setRootUrl("https://ratermate.appspot.com/_ah/api/");
 
             myApiService = builder.build();
         }
