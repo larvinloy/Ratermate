@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         add.addCategory(text2);
 
         //Execute Insert function
-        new EndpointsAsyncTask(this).execute();
+        new InsertSessionAsyncTask(this).execute();
 
     }
 

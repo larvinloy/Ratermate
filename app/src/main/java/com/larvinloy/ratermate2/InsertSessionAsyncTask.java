@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
+class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
     private static SessionApi myApiService = null;
     private Context context;
     public ArrayList<String> categories = new ArrayList<String>();
@@ -40,7 +40,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
     private BigInteger g = publicEncryption.getG();
 
 
-    EndpointsAsyncTask(Context context) {
+    InsertSessionAsyncTask(Context context) {
         this.context = context;
     }
 

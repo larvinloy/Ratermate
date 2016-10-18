@@ -33,12 +33,13 @@ import java.util.List;
 
 import static com.larvinloy.ratermate2.PassValues.sessionID;
 
-class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
+class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
+{
     private static SessionApi myApiService = null;
     private Context context;
     public ArrayList<String> categories = new ArrayList<String>();
     int modLength = 1024;
-    Paillier paillier = new Paillier(modLength);
+    Paillier paillier = Paillier.getInstance();
     PublicEncryption publicEncryption = new PublicEncryption(modLength,paillier.getN(),paillier.getG());
     private BigInteger n = publicEncryption.getN();
     private BigInteger g = publicEncryption.getG();
