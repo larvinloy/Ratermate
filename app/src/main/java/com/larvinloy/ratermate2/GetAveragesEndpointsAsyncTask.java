@@ -70,7 +70,7 @@ class GetAveragesEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
         Session test = new Session();
         Session resp;
         try {
-            resp = myApiService.get(sessionID).execute();
+            resp = myApiService.getAverages(sessionID).execute();
             return resp;
         } catch (IOException e) {
             return test;

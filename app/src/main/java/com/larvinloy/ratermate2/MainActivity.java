@@ -1,11 +1,11 @@
 package com.larvinloy.ratermate2;
 
-import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,11 +50,14 @@ public class MainActivity extends AppCompatActivity {
         add.addSessionID(sessionID);
 
         //Execute Insert function
-        new GetSessionEndpointsAsyncTask(this).execute();
+        new GetAveragesEndpointsAsyncTask(this).execute();
 
     }
 
     public void buttonVote(View v){
+
+        EditText id = (EditText) findViewById(R.id.idText);
+        String sessionId = id.getEditableText().toString();
 
         EditText et = (EditText) findViewById(R.id.ratingVoteLabel1);
         String text1 = et.getEditableText().toString();
@@ -62,21 +65,32 @@ public class MainActivity extends AppCompatActivity {
         EditText et2 = (EditText) findViewById(R.id.ratingVoteLabel2);
         String text2 = et2.getEditableText().toString();
 
-        int vote1 = Integer.parseInt(text1);
-        int vote2 = Integer.parseInt(text2);
+        BigInteger vote1 = new BigInteger(text1);
+        BigInteger vote2 = new BigInteger(text2);
 
+        add.addClientValues(vote1,vote2);
+        add.addSessionID(Long.parseLong(sessionId));
 
-
+        new InsertVoteAsyncTask(this).execute();
 
     }
 
-    public static ArrayList<String> getCategories(){
+    public static ArrayList<String> getCategories()
+    {
 
         return add.getCategories();
 
     }
 
-    public static long getSessionID(){
+    public static ArrayList<BigInteger> getClientValues()
+    {
+
+        return add.getClientValues();
+
+    }
+
+    public static long getSessionID()
+    {
 
         return add.getSessionID();
 

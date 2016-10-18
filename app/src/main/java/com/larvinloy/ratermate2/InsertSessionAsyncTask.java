@@ -14,7 +14,6 @@ import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.larvinloy.ratermate2.logic.Paillier;
-import com.larvinloy.ratermate2.logic.PublicEncryption;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -30,9 +29,8 @@ class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
     public ArrayList<String> categories = new ArrayList<String>();
     int modLength = 1024;
     Paillier paillier = Paillier.getInstance();
-    PublicEncryption publicEncryption = new PublicEncryption(modLength,paillier.getN(),paillier.getG());
-    private BigInteger n = publicEncryption.getN();
-    private BigInteger g = publicEncryption.getG();
+    private BigInteger n = paillier.getN();
+    private BigInteger g = paillier.getG();
 
 
     InsertSessionAsyncTask(Context context) {
