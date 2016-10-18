@@ -13,8 +13,10 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+import com.larvinloy.ratermate2.logic.Paillier;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,18 +26,18 @@ import static com.larvinloy.ratermate2.PassValues.sessionID;
 //import com.example.larvinloy.myapplication.backend.Quote;
 //import com.example.larvinloy.myapplication.backend.QuoteEndpoint;
 
-class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
+class GetAveragesEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 {
     private static SessionApi myApiService = null;
     private Context context;
 
     MainActivity mActivity;
 
-    GetSessionEndpointsAsyncTask(MainActivity activity) {
+    GetAveragesEndpointsAsyncTask(MainActivity activity) {
         mActivity = activity;
     }
 
-    GetSessionEndpointsAsyncTask(Context context) {
+    GetAveragesEndpointsAsyncTask(Context context) {
         this.context = context;
     }
 
@@ -68,7 +70,7 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
         Session test = new Session();
         Session resp;
         try {
-            resp = myApiService.getAverages(sessionID).execute();
+            resp = myApiService.get(sessionID).execute();
             return resp;
         } catch (IOException e) {
             return test;
@@ -80,20 +82,50 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
     protected void onPostExecute(Session result) {
 
         List<String> categories = new ArrayList<String>();
-
         categories = result.getCategories();
 
-        //Changes TextView to display Value
-        TextView text1 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel1);
-        TextView text2 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel2);
+        Paillier paillier = Paillier.getInstance();
+        List<String> encryptedAverages = new ArrayList<String>();
+        encryptedAverages=result.getAverages();
+        ArrayList<String> decryptedAverages = new ArrayList<String>();
 
-        for(int i = 0; i < categories.size(); i++){
-            if(i == 0){
-                text1.setText(categories.get(i));
-            } else {
-                text2.setText(categories.get(i));
+        try {
+            for(int i = 0 ; i < 2; i++)
+            {
+                BigInteger decryptedValue = paillier.decrypt(new BigInteger(encryptedAverages.get(i)));
+                String decryptedValueInString = decryptedValue.toString();
+                String decryptedValueWithDot = decryptedValueInString.substring(0, 1);
+                decryptedValueWithDot += ".";
+                decryptedValueWithDot += decryptedValueInString.substring(1,decryptedValueInString
+                        .length());
+                double decryptedValueInDouble = Double.valueOf(decryptedValueWithDot);
+                int integerPart = (int)decryptedValueInDouble;
+                double decimalPart = decryptedValueInDouble-integerPart;
+                if(decimalPart > 0.99999)
+                    decryptedValueInDouble = (double)integerPart + 1.0;
+
+                decryptedAverages.add(String.valueOf(decryptedValueInDouble));
             }
+
         }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        //Changes TextView to display Value
+        TextView rating1 = (TextView) mActivity.findViewById(R.id.ratingLabel1);
+        TextView rating2 = (TextView) mActivity.findViewById(R.id.ratingLabel2);
+
+        TextView category1 = (TextView) mActivity.findViewById(R.id.categoryLabel1);
+        TextView category2 = (TextView) mActivity.findViewById(R.id.categoryLabel2);
+
+        category1.setText(categories.get(0));
+        category2.setText(categories.get(1));
+
+        rating1.setText(decryptedAverages.get(0));
+        rating2.setText(decryptedAverages.get(1));
+
 //
 //        myAwesomeTextView.setText(text);
 

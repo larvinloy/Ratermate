@@ -3,9 +3,10 @@ package com.larvinloy.ratermate2;
 /**
  * Created by larvinloy on 15/10/16.
  */
+
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
 import com.example.larvinloy.myapplication.backend.sessionApi.model.Session;
@@ -13,37 +14,35 @@ import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
 import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
+import com.larvinloy.ratermate2.logic.Paillier;
+import com.larvinloy.ratermate2.logic.PublicEncryption;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.List;
-
-import static com.larvinloy.ratermate2.PassValues.sessionID;
 
 //import com.example.larvinloy.myapplication.backend.sessionApi.
 //import com.example.larvinloy.myapplication.backend.Quote;
 //import com.example.larvinloy.myapplication.backend.QuoteEndpoint;
 
-class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
-{
+class InsertVoteAsyncTask extends AsyncTask<Void, Void, Session> {
     private static SessionApi myApiService = null;
     private Context context;
+    public ArrayList<String> categories = new ArrayList<String>();
+    int modLength = 1024;
+    Paillier paillier = Paillier.getInstance();
+    PublicEncryption publicEncryption = new PublicEncryption(modLength,paillier.getN(),paillier.getG());
+    private BigInteger n = publicEncryption.getN();
+    private BigInteger g = publicEncryption.getG();
 
-    MainActivity mActivity;
 
-    GetSessionEndpointsAsyncTask(MainActivity activity) {
-        mActivity = activity;
-    }
-
-    GetSessionEndpointsAsyncTask(Context context) {
+    InsertVoteAsyncTask(Context context) {
         this.context = context;
     }
 
-
     @Override
     protected Session doInBackground(Void... params) {
-
-        sessionID = MainActivity.getSessionID();
+        categories = MainActivity.getCategories();
 
         if(myApiService == null) { // Only do this once
             SessionApi.Builder builder = new
@@ -59,7 +58,6 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
                             abstractGoogleClientRequest.setDisableGZipContent(true);
                         }
                     });
-
 //            SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
 //                    .setRootUrl("https://ratermate.appspot.com/_ah/api/");
 
@@ -68,7 +66,15 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
         Session test = new Session();
         Session resp;
         try {
-            resp = myApiService.getAverages(sessionID).execute();
+            test.setCategories(categories);
+            test.setG(g.toString());
+            test.setN(n.toString());
+            test.setModLength(modLength);
+
+
+            resp = myApiService.insert(test).execute();
+            //clear array list for next session
+            MainActivity.add.clear();
             return resp;
         } catch (IOException e) {
             return test;
@@ -79,24 +85,8 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
     @Override
     protected void onPostExecute(Session result) {
 
-        List<String> categories = new ArrayList<String>();
-
-        categories = result.getCategories();
-
-        //Changes TextView to display Value
-        TextView text1 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel1);
-        TextView text2 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel2);
-
-        for(int i = 0; i < categories.size(); i++){
-            if(i == 0){
-                text1.setText(categories.get(i));
-            } else {
-                text2.setText(categories.get(i));
-            }
-        }
-//
-//        myAwesomeTextView.setText(text);
-
+        Toast.makeText(context, String.valueOf(result.getSessionId()),
+                Toast.LENGTH_LONG).show();
 
     }
 }
