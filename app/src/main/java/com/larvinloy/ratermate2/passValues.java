@@ -6,9 +6,11 @@ package com.larvinloy.ratermate2;
 
 import java.util.*;
 
-public class addCategory {
+public class PassValues {
 
     static ArrayList<String> categories = new ArrayList<String>();
+
+    static long sessionID;
 
 
     //Adds to the categories array
@@ -23,6 +25,14 @@ public class addCategory {
 
     public void clear(){
         categories.clear();
+    }
+
+    public void addSessionID(long sessionID){
+        this.sessionID = sessionID;
+    }
+
+    public long getSessionID(){
+        return sessionID;
     }
 
 }

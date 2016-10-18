@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    static addCategory add = new addCategory();
+    static PassValues add = new PassValues();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +39,30 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Add Button Adds Category to Categories ArrayList
-    public void buttonCategory(View v) {
+    public void buttonGO(View v) {
 
+        EditText et = (EditText) findViewById(R.id.idText);
+        String text1 = et.getEditableText().toString();
 
+        long sessionID = Long.parseLong(text1);
 
+        add.addSessionID(sessionID);
 
-        //Changes TextView to display Value
-//        TextView myAwesomeTextView = (TextView)findViewById(R.id.textDisplayCategory);
-//
-//        myAwesomeTextView.setText(text);
+        //Execute Insert function
+        new GetSessionEndpointsAsyncTask(this).execute();
 
     }
 
     public static ArrayList<String> getCategories(){
 
         return add.getCategories();
+
+    }
+
+    public static long getSessionID(){
+
+        return add.getSessionID();
+
     }
 
 }
