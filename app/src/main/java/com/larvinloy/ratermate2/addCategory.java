@@ -8,7 +8,8 @@ import java.util.*;
 
 public class addCategory {
 
-    public ArrayList<String> categories = new ArrayList<String>();
+    static ArrayList<String> categories = new ArrayList<String>();
+
 
     //Adds to the categories array
     public void addCategory(String category){
@@ -18,6 +19,10 @@ public class addCategory {
     //getter
     public ArrayList<String> getCategories(){
         return categories;
+    }
+
+    public void clear(){
+        categories.clear();
     }
 
 }

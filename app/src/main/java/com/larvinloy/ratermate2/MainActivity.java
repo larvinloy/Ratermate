@@ -7,10 +7,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.larvinloy.ratermate2.logic.Paillier;
+import com.larvinloy.ratermate2.logic.PublicEncryption;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    addCategory addCategory;
+    static addCategory add = new addCategory();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     //Test Connection
     public void buttonStart(View v) {
         new EndpointsAsyncTask(this).execute();
+
     }
 
     //Add Button Adds Category to Categories ArrayList
@@ -28,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
         EditText et = (EditText) findViewById(R.id.categoryText);
         String text= et.getEditableText().toString();
 
-        addCategory.addCategory(text);
+        add.addCategory(text);
 
-        TextView myAwesomeTextView = (TextView)findViewById(R.id.textDisplayCategory);
+        //Changes TextView to display Value
+//        TextView myAwesomeTextView = (TextView)findViewById(R.id.textDisplayCategory);
+//
+//        myAwesomeTextView.setText(text);
 
-        myAwesomeTextView.setText(text);
+    }
 
+    public static ArrayList<String> getCategories(){
+        return add.getCategories();
     }
 
 }
