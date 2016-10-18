@@ -16,12 +16,15 @@ import com.example.larvinloy.myapplication.backend.quoteApi.QuoteApi;
 import com.example.larvinloy.myapplication.backend.quoteApi.model.Quote;
 import com.example.larvinloy.myapplication.backend.sessionApi.model.Session;
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
+import com.larvinloy.ratermate2.logic.Paillier;
+import com.larvinloy.ratermate2.logic.PublicEncryption;
 //import com.example.larvinloy.myapplication.backend.sessionApi.
 //import com.example.larvinloy.myapplication.backend.Quote;
 //import com.example.larvinloy.myapplication.backend.QuoteEndpoint;
 
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +32,13 @@ import java.util.List;
 class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
     private static SessionApi myApiService = null;
     private Context context;
+    public ArrayList<String> categories = new ArrayList<String>();
+    int modLength = 1024;
+    Paillier paillier = new Paillier(modLength);
+    PublicEncryption publicEncryption = new PublicEncryption(modLength,paillier.getN(),paillier.getG());
+    private BigInteger n = publicEncryption.getN();
+    private BigInteger g = publicEncryption.getG();
+
 
     EndpointsAsyncTask(Context context) {
         this.context = context;
@@ -36,21 +46,9 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
 
     @Override
     protected Session doInBackground(Void... params) {
+        categories = MainActivity.getCategories();
+
         if(myApiService == null) { // Only do this once
-//            SessionApi.Builder builder = new
-//                    SessionApi.Builder(AndroidHttp.newCompatibleTransport(),
-//                    new AndroidJsonFactory(), null)
-//// options for running against local devappserver
-//// — 10.0.2.2 is localhost’s IP address in Android emulator
-//// — turn off compression when running against local devappserver
-//                    .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-//            .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-//                @Override
-//                public void initialize(AbstractGoogleClientRequest<?>    abstractGoogleClientRequest) throws IOException {
-//                    abstractGoogleClientRequest.setDisableGZipContent(true);
-//                }
-//            });
-// end options for devappserver
 
             SessionApi.Builder builder = new SessionApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(),null)
                     .setRootUrl("https://ratermate.appspot.com/_ah/api/");
@@ -60,26 +58,21 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, Session> {
         Session test = new Session();
         Session resp;
         try {
-//            test.
-//            test.setWho("TWO ");
-//            test.setWhat("ONE");
-            test.setModLength(1024);
-            test.setG("1111111111111");
-            test.setN("3333333333333");
-            test.setModLength(1024);
+            test.setCategories(categories);
+            test.setG(g.toString());
+            test.setN(n.toString());
+            test.setModLength(modLength);
 
-            test.setCategories(new ArrayList<String>(){{
-                add("Apples");
-                add("Oranges");
-
-            }});
 
             resp = myApiService.insert(test).execute();
+            //clear array list for next session
+            MainActivity.add.clear();
             return resp;
         } catch (IOException e) {
             return test;
         }
     }
+
 
     @Override
     protected void onPostExecute(Session result) {

@@ -39,7 +39,7 @@
         android:layout_below="@+id/categoryText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        />
+        android:onClick="buttonStart" />
 
     <Button
         android:text="Get Results"
