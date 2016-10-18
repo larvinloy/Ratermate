@@ -54,6 +54,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void buttonVote(View v){
+
+        EditText et = (EditText) findViewById(R.id.ratingVoteLabel1);
+        String text1 = et.getEditableText().toString();
+
+        EditText et2 = (EditText) findViewById(R.id.ratingVoteLabel2);
+        String text2 = et2.getEditableText().toString();
+
+        int vote1 = Integer.parseInt(text1);
+        int vote2 = Integer.parseInt(text2);
+
+
+
+
+    }
+
     public static ArrayList<String> getCategories(){
 
         return add.getCategories();
