@@ -39,7 +39,7 @@
         android:layout_below="@+id/categoryText2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="buttonStart (MainActivity)" />
+        android:onClick="buttonStart" />
 
     <Button
         android:text="Get Results"
@@ -180,7 +180,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/buttonVote"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="buttonVote" />
 
     <Button
         android:text="GO"
