@@ -3,6 +3,7 @@ package com.larvinloy.ratermate2;
 /**
  * Created by larvinloy on 15/10/16.
  */
+
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
@@ -68,6 +69,18 @@ class InsertVoteAsyncTask extends AsyncTask<Void, Void, Vote>
             sessionApiService = builder.build();
         }
 
+        Session session;
+        PublicEncryption publicEncryption = new PublicEncryption(1,new BigInteger("0"),new BigInteger("0"));
+        try {
+            session = sessionApiService.get(MainActivity.getSessionID()).execute();
+            publicEncryption = new PublicEncryption(1024,
+                    new BigInteger(session.getN()),new BigInteger(session.getG()));
+
+        } catch (IOException e)
+        {
+        }
+
+
         if(voteApiService == null) { // Only do this once
             VoteApi.Builder builder = new
                     VoteApi.Builder(AndroidHttp.newCompatibleTransport(),
@@ -89,31 +102,27 @@ class InsertVoteAsyncTask extends AsyncTask<Void, Void, Vote>
             voteApiService = builder.build();
         }
 
-        Session session;
-        PublicEncryption publicEncryption = new PublicEncryption(1,new BigInteger("0"),new BigInteger("0"));
-        try {
-            session = sessionApiService.getAverages(MainActivity.getSessionID()).execute();
-            publicEncryption = new PublicEncryption(1024,
-                    new BigInteger(session.getN()),new BigInteger(session.getG()));
-        } catch (IOException e)
-        {
-        }
+
 
         Vote vote = new Vote();
         Vote test = new Vote();
         Vote resp;
         try {
+
+            vote.setModLength(1011);
+            resp = voteApiService.insert(vote).execute();
+
             vote.setSessionId(MainActivity.getSessionID());
             ArrayList<String> votes = new ArrayList<String>();
             BigInteger vote1 = publicEncryption.encrypt(MainActivity.getClientValues().get(0));
             BigInteger vote2 = publicEncryption.encrypt(MainActivity.getClientValues().get(1));
-            votes.add(publicEncryption.encrypt(vote1).toString());
-            votes.add(publicEncryption.encrypt(vote2).toString());
+            votes.add(vote1.toString());
+            votes.add(vote2.toString());
 //            test.setCategories(categories);
 //            test.setG(g.toString());
 //            test.setN(n.toString());
             vote.setModLength(modLength);
-
+            vote.setVotes(votes);
 
             resp = voteApiService.insert(vote).execute();
             //clear array list for next session

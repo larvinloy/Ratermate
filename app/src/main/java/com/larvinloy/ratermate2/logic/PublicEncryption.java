@@ -54,7 +54,8 @@ public class PublicEncryption implements Serializable
             // if m is not in Z_n
             if (m.compareTo(BigInteger.ZERO) < 0 || m.compareTo(n) >= 0)
             {
-                throw new Exception("Paillier.encrypt(BigInteger m): plaintext m is not in Z_n");
+                throw new Exception("Paillier.encrypt(BigInteger m): plaintext m is not in Z_n" + m.toString()
+                +" keys" + n+ " " + g);
             }
 
             // generate r, a random integer in Z*_n

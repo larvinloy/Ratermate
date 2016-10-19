@@ -48,7 +48,8 @@
         android:id="@+id/buttonResults"
         android:layout_below="@+id/categoryText2"
         android:layout_alignRight="@+id/buttonGO"
-        android:layout_alignEnd="@+id/buttonGO" />
+        android:layout_alignEnd="@+id/buttonGO"
+        android:onClick="buttonResults"/>
 
     <EditText
         android:layout_width="wrap_content"

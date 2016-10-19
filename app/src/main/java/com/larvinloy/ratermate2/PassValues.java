@@ -50,11 +50,11 @@ public class PassValues {
         return sessionID;
     }
 
-    public void addClientValues(BigInteger n, BigInteger g)
+    public void addClientValues(BigInteger v1, BigInteger v2)
     {
-
-        clientValues.add(n);
-        clientValues.add(g);
+        clientValues.clear();
+        clientValues.add(v1);
+        clientValues.add(v2);
 
     }
 

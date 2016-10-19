@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         String text2= et2.getEditableText().toString();
 
         //Add to Categories ArrayList
+        add.clearCategories();
         add.addCategory(text1);
         add.addCategory(text2);
 
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         add.addSessionID(sessionID);
 
         //Execute Insert function
-        new GetAveragesEndpointsAsyncTask(this).execute();
+        new GetSessionEndpointsAsyncTask(this).execute();
 
     }
 
@@ -60,10 +61,10 @@ public class MainActivity extends AppCompatActivity {
         String sessionId = id.getEditableText().toString();
 
         EditText et = (EditText) findViewById(R.id.ratingVoteLabel1);
-        String text1 = et.getEditableText().toString();
+        String text1 = et.getText().toString();
 
         EditText et2 = (EditText) findViewById(R.id.ratingVoteLabel2);
-        String text2 = et2.getEditableText().toString();
+        String text2 = et2.getText().toString();
 
         BigInteger vote1 = new BigInteger(text1);
         BigInteger vote2 = new BigInteger(text2);
@@ -72,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         add.addSessionID(Long.parseLong(sessionId));
 
         new InsertVoteAsyncTask(this).execute();
+
+    }
+
+    public void buttonResults(View v){
+
+        new GetAveragesEndpointsAsyncTask(this).execute();
 
     }
 

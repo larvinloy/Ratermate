@@ -148,7 +148,8 @@ public class SessionEndpoint {
         session.setAverages(averageString);
 
 
-        if (session == null) {
+        if (session == null)
+        {
             throw new NotFoundException("Could not find Session with ID: " + sessionId);
         }
 //        session.setG(info);

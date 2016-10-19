@@ -3,9 +3,10 @@ package com.larvinloy.ratermate2;
 /**
  * Created by larvinloy on 15/10/16.
  */
+
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
 import com.example.larvinloy.myapplication.backend.sessionApi.model.Session;
@@ -31,9 +32,16 @@ class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
     Paillier paillier = Paillier.getInstance();
     private BigInteger n = paillier.getN();
     private BigInteger g = paillier.getG();
+    MainActivity mActivity;
 
 
-    InsertSessionAsyncTask(Context context) {
+
+    InsertSessionAsyncTask(MainActivity activity)
+    {
+        this.mActivity = activity;
+    }
+    InsertSessionAsyncTask(Context context)
+    {
         this.context = context;
     }
 
@@ -63,7 +71,8 @@ class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
         }
         Session test = new Session();
         Session resp;
-        try {
+        try
+        {
             test.setCategories(categories);
             test.setG(g.toString());
             test.setN(n.toString());
@@ -74,7 +83,8 @@ class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
             //clear array list for next session
 
             return resp;
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             return test;
         }
     }
@@ -83,8 +93,11 @@ class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
     @Override
     protected void onPostExecute(Session result) {
 
-        Toast.makeText(context, String.valueOf(result.getSessionId()),
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, String.valueOf(result.getSessionId()),
+//                Toast.LENGTH_LONG).show();
+        TextView sessionId = (TextView) mActivity.findViewById(R.id.sessionId);
+        if(sessionId!= null)
+            sessionId.setText(String.valueOf(result.getSessionId()));
 
     }
 }
