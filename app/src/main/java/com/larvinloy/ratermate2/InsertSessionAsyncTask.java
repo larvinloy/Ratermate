@@ -6,7 +6,9 @@ package com.larvinloy.ratermate2;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
 import com.example.larvinloy.myapplication.backend.sessionApi.model.Session;
@@ -24,24 +26,23 @@ import java.util.ArrayList;
 
 class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
     private static SessionApi myApiService = null;
-    private Context context;
+
     public ArrayList<String> categories = new ArrayList<String>();
     int modLength = 1024;
     Paillier paillier = Paillier.getInstance();
     private BigInteger n = paillier.getN();
     private BigInteger g = paillier.getG();
     MainActivity mActivity;
+    private Context context;
 
 
 
     InsertSessionAsyncTask(MainActivity activity)
     {
         this.mActivity = activity;
+        this.context = activity;
     }
-    InsertSessionAsyncTask(Context context)
-    {
-        this.context = context;
-    }
+
 
     @Override
     protected Session doInBackground(Void... params) {
@@ -91,11 +92,22 @@ class InsertSessionAsyncTask extends AsyncTask<Void, Void, Session> {
     @Override
     protected void onPostExecute(Session result) {
 
-//        Toast.makeText(context, String.valueOf(result.getSessionId()),
-//                Toast.LENGTH_LONG).show();
+
         TextView sessionId = (TextView) mActivity.findViewById(R.id.sessionId);
-        if(sessionId!= null)
+        if(sessionId!= null) {
             sessionId.setText(String.valueOf(result.getSessionId()));
+            Toast.makeText(context,"Session Created!" ,
+                    Toast.LENGTH_LONG).show();
+            Button btn = (Button) mActivity.findViewById(R.id.buttonResults);
+            btn.setEnabled(true);
+            btn = (Button) mActivity.findViewById(R.id.buttonStart);
+            btn.setEnabled(false);
+        }
+        else
+        {
+            Toast.makeText(context, "Failed",
+                    Toast.LENGTH_LONG).show();
+        }
 
     }
 }

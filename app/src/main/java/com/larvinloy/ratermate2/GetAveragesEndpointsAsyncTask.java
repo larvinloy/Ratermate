@@ -5,7 +5,9 @@ package com.larvinloy.ratermate2;
  */
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
 import com.example.larvinloy.myapplication.backend.sessionApi.model.Session;
@@ -27,17 +29,17 @@ import static com.larvinloy.ratermate2.PassValues.sessionID;
 class GetAveragesEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 {
     private static SessionApi myApiService = null;
-    private Context context;
+
 
     MainActivity mActivity;
+    private Context context = mActivity;
 
     GetAveragesEndpointsAsyncTask(MainActivity activity) {
-        mActivity = activity;
+        this.mActivity = activity;
+        this.context = activity;
     }
 
-    GetAveragesEndpointsAsyncTask(Context context) {
-        this.context = context;
-    }
+
 
 
     @Override
@@ -77,7 +79,8 @@ class GetAveragesEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 
 
     @Override
-    protected void onPostExecute(Session result) {
+    protected void onPostExecute(Session result)
+    {
 
         List<String> categories = new ArrayList<String>();
         categories = result.getCategories();
@@ -116,14 +119,22 @@ class GetAveragesEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
         TextView rating1 = (TextView) mActivity.findViewById(R.id.ratingLabel1);
         TextView rating2 = (TextView) mActivity.findViewById(R.id.ratingLabel2);
 
-        TextView category1 = (TextView) mActivity.findViewById(R.id.categoryLabel1);
-        TextView category2 = (TextView) mActivity.findViewById(R.id.categoryLabel2);
-
-        category1.setText(categories.get(0));
-        category2.setText(categories.get(1));
+//        TextView category1 = (TextView) mActivity.findViewById(R.id.categoryLabel1);
+//        TextView category2 = (TextView) mActivity.findViewById(R.id.categoryLabel2);
+//
+//        category1.setText(categories.get(0));
+//        category2.setText(categories.get(1));
 
         rating1.setText(decryptedAverages.get(0));
         rating2.setText(decryptedAverages.get(1));
+
+        Toast.makeText(context,"Results Fetched!" ,
+                Toast.LENGTH_LONG).show();
+
+        Button btn = (Button) mActivity.findViewById(R.id.buttonResults);
+        btn.setEnabled(false);
+        btn = (Button) mActivity.findViewById(R.id.buttonStart);
+        btn.setEnabled(true);
 
 //
 //        myAwesomeTextView.setText(text);

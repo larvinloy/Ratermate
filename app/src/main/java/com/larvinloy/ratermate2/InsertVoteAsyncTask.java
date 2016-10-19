@@ -6,6 +6,7 @@ package com.larvinloy.ratermate2;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
@@ -29,6 +30,7 @@ class InsertVoteAsyncTask extends AsyncTask<Void, Void, Vote>
 {
     private static VoteApi voteApiService = null;
     private static SessionApi sessionApiService = null;
+    private MainActivity mActivity;
     private Context context;
     public ArrayList<String> categories = new ArrayList<String>();
     int modLength = 1024;
@@ -38,9 +40,12 @@ class InsertVoteAsyncTask extends AsyncTask<Void, Void, Vote>
     private BigInteger g = publicEncryption.getG();
 
 
-    InsertVoteAsyncTask(Context context) {
-        this.context = context;
+    InsertVoteAsyncTask(MainActivity activity)
+    {
+        this.mActivity = activity;
+        this.context = activity;
     }
+
 
     @Override
     protected Vote doInBackground(Void... params) {
@@ -137,8 +142,24 @@ class InsertVoteAsyncTask extends AsyncTask<Void, Void, Vote>
     @Override
     protected void onPostExecute(Vote result) {
 
-        Toast.makeText(context, String.valueOf(result.getSessionId()),
-                Toast.LENGTH_LONG).show();
+        if(result!=null)
+        {
+            Toast.makeText(context, "Success",
+                    Toast.LENGTH_LONG).show();
+            Button btn = (Button) mActivity.findViewById(R.id.buttonGO);
+            btn.setEnabled(true);
+            btn = (Button) mActivity.findViewById(R.id.buttonVote);
+            btn.setEnabled(false);
+
+        }
+        else
+        {
+            Toast.makeText(context, "Failed",
+                    Toast.LENGTH_LONG).show();
+            Button btn = (Button) mActivity.findViewById(R.id.buttonGO);
+            btn.setEnabled(true);
+        }
+
 
     }
 }

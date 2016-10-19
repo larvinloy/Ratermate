@@ -5,7 +5,9 @@ package com.larvinloy.ratermate2;
  */
 import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.larvinloy.myapplication.backend.sessionApi.SessionApi;
 import com.example.larvinloy.myapplication.backend.sessionApi.model.Session;
@@ -26,17 +28,18 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
 {
     private static SessionApi myApiService = null;
 
+    MainActivity mActivity;
+
     private Context context;
 
-    MainActivity mActivity;
+
 
     GetSessionEndpointsAsyncTask(MainActivity activity) {
         mActivity = activity;
+        this.context = activity;
     }
 
-    GetSessionEndpointsAsyncTask(Context context) {
-        this.context = context;
-    }
+
 
 
     @Override
@@ -78,21 +81,37 @@ class GetSessionEndpointsAsyncTask extends AsyncTask<Void, Void, Session>
     @Override
     protected void onPostExecute(Session result) {
 
-        List<String> categories = new ArrayList<String>();
+        if(result !=null && result.getCategories()!=null)
+        {
+            List<String> categories = new ArrayList<String>();
 
-        categories = result.getCategories();
+            categories = result.getCategories();
 
-        //Changes TextView to display Value
-        TextView text1 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel1);
-        TextView text2 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel2);
+            //Changes TextView to display Value
+            TextView text1 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel1);
+            TextView text2 = (TextView) mActivity.findViewById(R.id.categoryVoteLabel2);
 
-        for(int i = 0; i < categories.size(); i++){
-            if(i == 0){
-                text1.setText(categories.get(i));
-            } else {
-                text2.setText(categories.get(i));
+            for(int i = 0; i < categories.size(); i++){
+                if(i == 0){
+                    text1.setText(categories.get(i));
+                } else {
+                    text2.setText(categories.get(i));
+                }
             }
+
+            Toast.makeText(context,"Session Fetched!" ,
+                    Toast.LENGTH_LONG).show();
+            Button btn = (Button) mActivity.findViewById(R.id.buttonGO);
+            btn.setEnabled(false);
+            btn = (Button) mActivity.findViewById(R.id.buttonVote);
+            btn.setEnabled(true);
         }
+        else
+        {
+            Toast.makeText(context,"Bad Session Id!" ,
+                    Toast.LENGTH_LONG).show();
+        }
+
 //
 //        myAwesomeTextView.setText(text);
 

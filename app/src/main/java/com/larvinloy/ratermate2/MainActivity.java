@@ -1,9 +1,11 @@
 package com.larvinloy.ratermate2;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -13,9 +15,17 @@ public class MainActivity extends AppCompatActivity {
     static PassValues add = new PassValues();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button btn = (Button) findViewById(R.id.buttonResults);
+        btn.setEnabled(false);
+
+        btn = (Button) findViewById(R.id.buttonVote);
+        btn.setEnabled(false);
+
     }
 
     //Test Connection
@@ -35,8 +45,15 @@ public class MainActivity extends AppCompatActivity {
         add.addCategory(text1);
         add.addCategory(text2);
 
+        TextView category1 = (TextView) findViewById(R.id.categoryLabel1);
+        TextView category2 = (TextView) findViewById(R.id.categoryLabel2);
+
+
         //Execute Insert function
         new InsertSessionAsyncTask(this).execute();
+
+        category1.setText(text1);
+        category2.setText(text2);
 
     }
 
